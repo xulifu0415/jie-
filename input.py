@@ -2,10 +2,7 @@
 #   --------------------------------注释区--------------------------------
 #   入口:https://wdk666.imehui.com/plugin.php?id=xigua_hh&ac=invite&idu=8889308&idu=8889308&idu=8889308
 #   变量:yuanshen_wdk
-#   多号分割方式 [ @ 或 换行 或 新建同名变量 ]
-#   formhash的值直接搜formhash找链接中的参数即可 不懂v50解决
-#   抓取cookie的全部值和formhash的值填入
-#   corn: 一天一次即可
+
 #   完成任务签到 领取分红 每日1左右
 
 import sys
