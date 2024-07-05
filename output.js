@@ -1,4 +1,4 @@
-//Fri Jul 05 2024 02:48:11 GMT+0000 (Coordinated Universal Time)
+//Fri Jul 05 2024 02:52:00 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const $ = new Env("周到上海");

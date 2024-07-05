@@ -1,65 +1,34 @@
-#2024-07-05 02:48:01
-import requests
-import os
-import time
-import random
-import hashlib
-class yuanshen():
- def __init__(self,cookie):
-  self.cookie=cookie
-  self.h={"Host":"app.zhuanbang.net","accept":"application/json, image/webp","user-agent":"Mozilla/5.0 (Linux; Android 12; M2104K10AC Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/96.0.4664.104 Mobile Safari/537.36 HuoNiuFusion/1.25.0_231652","x-requested-with":"XMLHttpRequest","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"https://app.zhuanbang.net/assist/activity/47","accept-language":"zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7","accept-encoding":"gzip","Cookie":f"NiuToken={self.cookie}"}
- def sign_(self):
-  d=f"{self.csrftoken}#{self.sessionId}#{self.time}"
-  byte_string=d.encode('utf-8')
-  sha1=hashlib.sha1()
-  sha1.update(byte_string)
-  sign=sha1.hexdigest()
-  return sign
- def video(self,key):
-  i=0
-  while True:
-   i+=1
-   url=f"https://app.zhuanbang.net/{key}/launch?_random={int(time.time() * 1000)}&type=slide"
-   r=requests.get(url,headers=self.h).json()
-   if r['code']==0:
-    print(f"第[{i}]个红包获取信息成功")
-    self.csrftoken=r['data']['extArgs']['csrfToken']
-    self.sessionId=r['data']['extArgs']['sessionId']
-    self.time=int(time.time())
-    url=f"https://app.zhuanbang.net/{key}/award/grant?_t={self.time}"
-    data={"csrfToken":f"{self.csrftoken}","deviceId":f"{self.sessionId}","timestamp":f"{self.time}","sign":f"{self.sign_()}"}
-    r=requests.post(url,headers=self.h,data=data).json()
-    if r['code']==0:
-     print(f"第[{i}]个红包领取成功,获得[{r['data']['awardMoney']}]元")
-    else:
-     print(f"第[{i}]个红包领取失败---[{r['msg']}]")
-     break
-   else:
-    print(f"第[{i}]个获取红包信息失败---[{r['msg']}]")
-    break
-   if i>=21:
-    break
-   time.sleep(random.randint(20,48))
- def main(self):
-  print("===========开始执行快手刷视频===========")
-  self.video("kwai_video")
-  print("===========快手刷视频执行完毕===========")
-  print("===========开始执行抖音刷视频===========")
-  self.video("pangle_video")
-  print("===========抖音刷视频执行完毕===========")
-if __name__=='__main__':
- cookie=''
- if not cookie:
-  cookie=os.getenv("yuanshen_zb")
-  if not cookie:
-   print("⛔️请设置环境变量:yuanshen_zb")
-   exit()
- cookies=cookie.split("@")
- print(f"一共获取到{len(cookies)}个账号")
- i=1
- for cookie in cookies:
-  print(f"\n--------开始第{i}个账号--------")
-  main=yuanshen(cookie)
-  main.main()
-  print(f"--------第{i}个账号执行完毕--------")
-  i+=1
+#2024-07-05 02:51:53
+import requests #line:7
+import json ,os #line:8
+O0O0OOO0OOO0O0O00 ="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF XWEB/6945"#line:10
+def O0OO0000OOOOO00O0 (OOOOO0O0O00000OOO ):#line:12
+    O0OO00OO00O00OOOO =json .dumps ({"userId":OOOOO0O0O00000OOO .split ('#')[0 ],"appId":"wx52872495fb375c4b","openId":OOOOO0O0O00000OOO .split ('#')[1 ],"activId":"c0c4a0a3ef8145f49f2e294741a3cd62"})#line:18
+    O0O000O0O0O000OOO ={'User-Agent':O0O0OOO0OOO0O0O00 ,'Content-Type':"application/json",'Origin':"https://ump.ems.com.cn",'Referer':"https://ump.ems.com.cn/signAct/index.html?activId=c0c4a0a3ef8145f49f2e294741a3cd62&openId=o-7675DwChhu-KquTEvlq-IhrWFY&timestamp=1720085085913&kensyou=670CE1D68D91CD663F6A91B69D28082F&sssUrl=VJ3Y3a&appId=wx52872495fb375c4b&unionId&platform=WECHAT&phone&grape&loaction&mcpLocation&exParam",}#line:24
+    OOO00O0OOO0O000O0 =requests .post ("https://ump.ems.com.cn/activCenterApi/signActivInfo/sign",data =O0OO00OO00O00OOOO ,headers =O0O000O0O0O000OOO )#line:25
+    OOO00O0OOO0O000O0 =json .loads (OOO00O0OOO0O000O0 .text )#line:26
+    print (f'---------- 开始签到 ----------')#line:27
+    if OOO00O0OOO0O000O0 ['code']==000000 :#line:28
+        print (f'---------- 今日签到成功 ---------')#line:29
+    else :#line:30
+        print (f'----------',OOO00O0OOO0O000O0 ['msg'],'----------')#line:31
+def OOOO0O0OOO00000O0 (OOOOOO0OO0000OO00 ):#line:32
+    print (f'---------- 开始查询积分 ----------')#line:33
+    OOOOO00O0OOOO00O0 =json .dumps ({})#line:34
+    OO00OOOO000000000 ={'User-Agent':O0O0OOO0OOO0O0O00 ,'Content-Type':"application/json",'MC-TOKEN':OOOOOO0OO0000OO00 .split ('#')[2 ],'Referer':"https://servicewechat.com/wx52872495fb375c4b/48/page-frame.html"}#line:40
+    O0O00O0O0000O0OOO =requests .post ("https://ump.ems.com.cn/memberCenterApiV2/golds/memberGoldsInfo",data =OOOOO00O0OOOO00O0 ,headers =OO00OOOO000000000 )#line:41
+    O0O00O0O0000O0OOO =json .loads (O0O00O0O0000O0OOO .text )#line:42
+    OOO000OO0OOOO0O0O =O0O00O0O0000O0OOO .get ('info',{})#line:43
+    OOOO0OO000O0O0O0O =OOO000OO0OOOO0O0O .get ('availableGoldsTotal',{})#line:44
+    print (f'----------当前积分：{OOOO0OO000O0O0O0O} 积分----------')#line:45
+if __name__ =="__main__":#line:47
+    OO000OOO00000000O =os .environ .get ('emsyhzx')#line:48
+    if not OO000OOO00000000O :#line:49
+        print ("\n===============================想什么呢，变量都没填，跑什么===============================")#line:50
+    else :#line:51
+        O00O0OOO0OOOOOOOO =OO000OOO00000000O .split ('\n')#line:52
+        O000OOO0O0O000OOO =len (O00O0OOO0OOOOOOOO )#line:53
+        for O000OOO0O0O000OOO ,OOOOO0OOOO0OO000O in enumerate (O00O0OOO0OOOOOOOO ,start =1 ):#line:54
+            print (f"\n===============================开始执行第{O000OOO0O0O000OOO}个账号任务===============================")#line:55
+            O0OO0000OOOOO00O0 (OOOOO0OOOO0OO000O )#line:56
+            OOOO0O0OOO00000O0 (OOOOO0OOOO0OO000O )#line:57
