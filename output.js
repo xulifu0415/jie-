@@ -1,4 +1,4 @@
-//Sun Jul 14 2024 15:11:07 GMT+0000 (Coordinated Universal Time)
+//Mon Jul 15 2024 07:22:01 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const jsname = "屈臣氏",
