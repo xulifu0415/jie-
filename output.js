@@ -1,4 +1,4 @@
-//Sun Jul 21 2024 13:44:16 GMT+0000 (Coordinated Universal Time)
+//Tue Jul 23 2024 14:23:10 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const D_j_0x3c96c7 = new D_j_0xd30860("趣头条");
