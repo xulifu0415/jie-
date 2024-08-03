@@ -1,6 +1,6 @@
 # 去玩生活 活动入口http://quwansh.bksiyi.com/pages/register/index.html?invite_code=892477
 # 抓Authorization X-Device-ID
-# 变量格式抓Authorization#X-Device-ID 多账号&分割
+# 变量格式抓Authorization#X-Device-ID 
 # 环境变量名称JWenzz1_qush
 # 自己看着定时
 # 交流群767421468
