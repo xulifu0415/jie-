@@ -1,4 +1,4 @@
-//Fri Aug 02 2024 12:54:00 GMT+0000 (Coordinated Universal Time)
+//Sat Aug 03 2024 04:26:10 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 let host = '139.9.216.180:6688';
