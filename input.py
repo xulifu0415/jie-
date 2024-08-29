@@ -4,7 +4,7 @@
 #   开着抓包手动签到一次 找takePartInSign接口(直接搜takePartInSign)的返回体中的userid填入
 #   同时在这一个包找请求头中qm-user-token的值
 #   不对应可能产生玄学问题例如提示服务繁忙
-#
+
 #   格式:qm-user-token#userid
 #   变量:yuanshen_bwcj
 #   多号分割方式 [ @ 或 换行 或 新建同名变量 ]
