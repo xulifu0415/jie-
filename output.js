@@ -1,4 +1,4 @@
-//Thu Aug 29 2024 13:06:43 GMT+0000 (Coordinated Universal Time)
+//Sun Sep 01 2024 13:43:52 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const David_0x4c906a = new David_0x230a32("新氧医美");
@@ -893,14 +893,20 @@ function David_0x244fc3(_0xc73044) {
 function David_0x4a8deb(_0x2ba81f, _0x2038ef) {
   switch (arguments.length) {
     case 1:
-      return parseInt(Math.random() * _0x2ba81f + 1);
-      break;
+      {
+        return parseInt(Math.random() * _0x2ba81f + 1);
+        break;
+      }
     case 2:
-      return parseInt(Math.random() * (_0x2038ef - _0x2ba81f + 1) + _0x2ba81f);
-      break;
+      {
+        return parseInt(Math.random() * (_0x2038ef - _0x2ba81f + 1) + _0x2ba81f);
+        break;
+      }
     default:
-      return 0;
-      break;
+      {
+        return 0;
+        break;
+      }
   }
 }
 function David_0x107526() {
@@ -1367,17 +1373,25 @@ function David_0x33c39a(_0x570037) {
   }
   switch (_0x1466a2 % 4) {
     case 0:
-      _0x5dd2b8 = 2147483648;
-      break;
+      {
+        _0x5dd2b8 = 2147483648;
+        break;
+      }
     case 1:
-      _0x5dd2b8 = _0x570037.charCodeAt(_0x1466a2 - 1) << 24 | 8388608;
-      break;
+      {
+        _0x5dd2b8 = _0x570037.charCodeAt(_0x1466a2 - 1) << 24 | 8388608;
+        break;
+      }
     case 2:
-      _0x5dd2b8 = _0x570037.charCodeAt(_0x1466a2 - 2) << 24 | _0x570037.charCodeAt(_0x1466a2 - 1) << 16 | 32768;
-      break;
+      {
+        _0x5dd2b8 = _0x570037.charCodeAt(_0x1466a2 - 2) << 24 | _0x570037.charCodeAt(_0x1466a2 - 1) << 16 | 32768;
+        break;
+      }
     case 3:
-      _0x5dd2b8 = _0x570037.charCodeAt(_0x1466a2 - 3) << 24 | _0x570037.charCodeAt(_0x1466a2 - 2) << 16 | _0x570037.charCodeAt(_0x1466a2 - 1) << 8 | 128;
-      break;
+      {
+        _0x5dd2b8 = _0x570037.charCodeAt(_0x1466a2 - 3) << 24 | _0x570037.charCodeAt(_0x1466a2 - 2) << 16 | _0x570037.charCodeAt(_0x1466a2 - 1) << 8 | 128;
+        break;
+      }
   }
   _0x4223fb.push(_0x5dd2b8);
   while (_0x4223fb.length % 16 != 14) {
@@ -1542,9 +1556,9 @@ function David_0x230a32(_0x436185, _0x124c48) {
       this.env = _0x1b9da9;
     }
     send(_0x8e90c9, _0xf34e90 = "GET") {
-      _0x8e90c9 = typeof _0x8e90c9 === "string" ? {
+      typeof _0x8e90c9 === "string" ? _0x8e90c9 = {
         url: _0x8e90c9
-      } : _0x8e90c9;
+      } : _0x8e90c9 = _0x8e90c9;
       let _0x5bdfc4 = this.get;
       if (_0xf34e90 === "POST") {
         _0x5bdfc4 = this.post;
@@ -1641,10 +1655,10 @@ function David_0x230a32(_0x436185, _0x124c48) {
     runScript(_0x402ecc, _0x2740da) {
       return new Promise(_0x1df659 => {
         let _0x22760d = this.getdata("@chavy_boxjs_userCfgs.httpapi");
-        _0x22760d = _0x22760d ? _0x22760d.replace(/\n/g, "").trim() : _0x22760d;
+        _0x22760d ? _0x22760d = _0x22760d.replace(/\n/g, "").trim() : _0x22760d = _0x22760d;
         let _0xf0f9b5 = this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");
-        _0xf0f9b5 = _0xf0f9b5 ? _0xf0f9b5 * 1 : 20;
-        _0xf0f9b5 = _0x2740da && _0x2740da.timeout ? _0x2740da.timeout : _0xf0f9b5;
+        _0xf0f9b5 ? _0xf0f9b5 = _0xf0f9b5 * 1 : _0xf0f9b5 = 20;
+        _0x2740da && _0x2740da.timeout ? _0xf0f9b5 = _0x2740da.timeout : _0xf0f9b5 = _0xf0f9b5;
         const [_0x35abca, _0x2d46ce] = _0x22760d.split("@");
         const _0x2c5265 = {
           script_text: _0x402ecc,
@@ -1665,8 +1679,8 @@ function David_0x230a32(_0x436185, _0x124c48) {
     }
     loaddata() {
       if (this.isNode()) {
-        this.fs = this.fs ? this.fs : require("fs");
-        this.path = this.path ? this.path : require("path");
+        this.fs ? this.fs = this.fs : this.fs = require("fs");
+        this.path ? this.path = this.path : this.path = require("path");
         const _0x4bf868 = this.path.resolve(this.dataFile);
         const _0x322dfa = this.path.resolve(process.cwd(), this.dataFile);
         const _0x1202a7 = this.fs.existsSync(_0x4bf868);
@@ -1687,8 +1701,8 @@ function David_0x230a32(_0x436185, _0x124c48) {
     }
     writedata() {
       if (this.isNode()) {
-        this.fs = this.fs ? this.fs : require("fs");
-        this.path = this.path ? this.path : require("path");
+        this.fs ? this.fs = this.fs : this.fs = require("fs");
+        this.path ? this.path = this.path : this.path = require("path");
         const _0x306250 = this.path.resolve(this.dataFile);
         const _0x1c5d3b = this.path.resolve(process.cwd(), this.dataFile);
         const _0x47c56e = this.fs.existsSync(_0x306250);
@@ -1723,7 +1737,7 @@ function David_0x230a32(_0x436185, _0x124c48) {
       if (!Array.isArray(_0x3dbeaf)) {
         _0x3dbeaf = _0x3dbeaf.toString().match(/[^.[]]+/g) || [];
       }
-      _0x3dbeaf.slice(0, -1).reduce((_0x178a8e, _0x374f56, _0x469278) => Object(_0x178a8e[_0x374f56]) === _0x178a8e[_0x374f56] ? _0x178a8e[_0x374f56] : _0x178a8e[_0x374f56] = Math.abs(_0x3dbeaf[_0x469278 + 1 < 10 ? "0" + (_0x469278 + 1) : _0x469278 + 1]) >> 0 === +_0x3dbeaf[_0x469278 + 1 < 10 ? "0" + (_0x469278 + 1) : _0x469278 + 1] ? [] : {}, _0x3cc245)[_0x3dbeaf[_0x3dbeaf.length - 1]] = _0x3c438;
+      _0x3dbeaf.slice(0, -1).reduce((_0x178a8e, _0x374f56, _0x469278) => Object(_0x178a8e[_0x374f56]) === _0x178a8e[_0x374f56] ? _0x178a8e[_0x374f56] : Math.abs(_0x3dbeaf[_0x469278 + 1 < 10 ? "0" + (_0x469278 + 1) : _0x469278 + 1]) >> 0 === +_0x3dbeaf[_0x469278 + 1 < 10 ? "0" + (_0x469278 + 1) : _0x469278 + 1] ? _0x178a8e[_0x374f56] = [] : _0x178a8e[_0x374f56] = {}, _0x3cc245)[_0x3dbeaf[_0x3dbeaf.length - 1]] = _0x3c438;
       return _0x3cc245;
     }
     getdata(_0x51c69f) {
@@ -1734,7 +1748,7 @@ function David_0x230a32(_0x436185, _0x124c48) {
         if (_0x56b379) {
           try {
             const _0x17f14a = JSON.parse(_0x56b379);
-            _0x1c0696 = _0x17f14a ? this.lodash_get(_0x17f14a, _0x54fa84, "") : _0x1c0696;
+            _0x17f14a ? _0x1c0696 = this.lodash_get(_0x17f14a, _0x54fa84, "") : _0x1c0696 = _0x1c0696;
           } catch (_0x7f6b41) {
             _0x1c0696 = "";
           }
@@ -1797,11 +1811,11 @@ function David_0x230a32(_0x436185, _0x124c48) {
       }
     }
     initGotEnv(_0x5e50d6) {
-      this.got = this.got ? this.got : require("got");
-      this.cktough = this.cktough ? this.cktough : require("tough-cookie");
-      this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar();
+      this.got ? this.got = this.got : this.got = require("got");
+      this.cktough ? this.cktough = this.cktough : this.cktough = require("tough-cookie");
+      this.ckjar ? this.ckjar = this.ckjar : this.ckjar = new this.cktough.CookieJar();
       if (_0x5e50d6) {
-        _0x5e50d6.headers = _0x5e50d6.headers ? _0x5e50d6.headers : {};
+        _0x5e50d6.headers ? _0x5e50d6.headers = _0x5e50d6.headers : _0x5e50d6.headers = {};
         if (undefined === _0x5e50d6.headers.Cookie && undefined === _0x5e50d6.cookieJar) {
           _0x5e50d6.cookieJar = this.ckjar;
         }
