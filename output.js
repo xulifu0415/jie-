@@ -1,4 +1,4 @@
-//Sun Sep 01 2024 13:45:41 GMT+0000 (Coordinated Universal Time)
+//Sun Sep 01 2024 13:47:02 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const David_0x3f1a58 = new David_0x5b6b2d("新氧医美"),
