@@ -1,5 +1,5 @@
 '''
-入口：http://qqmc.huitui.pro/pages/signin/index.html?invite_code=193263 邀请码：419429，你走头是我修bug的动力
+注册http://qqmc.huitui.pro/pages/signin/index.html?invite_code=419429 邀请码：419429，你走头是我修bug的动力
 抓qqmc.huitui.pro请求头里的X-Device-ID和Authorization，填入变量token_qqmc
 格式：X-Device-ID#Authorization  多账号@隔开
 玩法：1.元宝可以换金币，金币买猫继续产金币；2.元宝换现金提现；3.元宝转赠出售给别人；4.元宝换分红点，每月分红
@@ -8,7 +8,7 @@
 '''
 
 # 开启多线程，下方改为True
-thread_TF = True
+thread_TF = False
 
 import bz2
 import base64
