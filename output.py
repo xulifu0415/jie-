@@ -1,204 +1,147 @@
-#2024-09-13 14:16:53
+#2024-09-18 04:41:38
 
-import base64
-import json
 import requests
-import random
 import time
+import random
 import hashlib
+import os
 import string
 import threading
-import os
 
-class qqmc():
-    def __init__(self,token) -> None:
-        self.device = token.split('#')[0]
-        self.token = token.split('#')[1]
-        self.headers_g = {
-            "Authorization": self.token,
-            "X-Version-Code": "105",
-            "X-Platform": "android",
-            "X-System": "11",
-            "X-Brand": "Redmi",
-            "X-Device-ID": self.device,
-            "X-Client-Id": "com.yourong.app.qqmc",
-            "distributor-key": "qqmc",
-            "Host": "qqmc.huitui.pro",
-            "Connection": "Keep-Alive",
-            "Accept-Encoding": "gzip",
-            "User-Agent": "okhttp/4.9.3"
-        }
-        self.headers_p = {
-            "Authorization": self.token,
-            "X-Version-Code": "105",
-            "X-Platform": "android",
-            "X-System": "11",
-            "X-Brand": "Redmi",
-            "X-Device-ID": self.device,
-            "X-Client-Id": "com.yourong.app.qqmc",
-            "distributor-key": "qqmc",
-            "Content-Type": "application/json; charset=UTF-8",
-            "Host": "qqmc.huitui.pro",
-            "Connection": "Keep-Alive",
-            "Accept-Encoding": "gzip",
-            "User-Agent": "okhttp/4.9.3"
-        }
 
-    def get_nonce(self):
-        characters = string.ascii_lowercase + string.digits
-        self.nonce = ''
-        for _ in range(32):
-            self.nonce += random.choice(characters)
-    def get_md5(self,message):
+class yunji():
+    def __init__(self,userid) -> None:
+        self.token = userid.split('#')[0]
+        self.code = userid.split('#')[1]
+
+    def generate_random_string(self):
+        characters = string.ascii_letters + string.digits
+        return ''.join(random.choice(characters) for _ in range(16))
+
+    def hash(self,message):
         md5 = hashlib.md5()
         md5.update(message.encode('utf-8'))
-        return md5.hexdigest()
+        message1 = md5.hexdigest()+'bd10b31d-9877-43ae-8f12-de08926987aa'
+        sha1 = hashlib.sha1()
+        sha1.update(message1.encode('utf-8'))
+        sha1 = sha1.hexdigest()
+        return sha1
 
-    def tasks(self):
-        url = "http://qqmc.huitui.pro/tasks"
-        response = requests.get(url, headers=self.headers_g)
-        if response.json().get('code') == 200001:
-            print('获取任务列表成功')
-            self.task_list = {}
-            for tasks in response.json().get('data').get('tasks'):
-                if tasks.get('finished'):
-                    continue
-                if tasks.get('id') == 1 or tasks.get('id') == 2:
-                    self.task_list[tasks.get('name')] = tasks.get('id')
-        else:
-            print(f"获取任务失败：{response.json().get('message')}")
-    
-    def daily(self,k):
-        t = str(int(time.time()*1000))
-        self.get_nonce()
-        if self.task_list[k] == 1:
-            if len(self.device) <= 16:
-                message = f"{self.device}&{self.task_list[k]}&{t}&{self.nonce}&T50uedlIX0fsgr5i0cGQdriBjmSAiLqC&com.yourong.app.qqmc"
-            else:
-                message = f"{self.task_list[k]}&{t}&{self.nonce}&{self.device}&T50uedlIX0fsgr5i0cGQdriBjmSAiLqC&com.yourong.app.qqmc"
-        elif self.task_list[k] == 2:
-            if len(self.device) <= 16:
-                message = f"{self.device}&{t}&{self.task_list[k]}&{self.nonce}&T50uedlIX0fsgr5i0cGQdriBjmSAiLqC&com.yourong.app.qqmc"
-            else:
-                message = f"{t}&{self.task_list[k]}&{self.nonce}&{self.device}&T50uedlIX0fsgr5i0cGQdriBjmSAiLqC&com.yourong.app.qqmc"
-        # print(message)
-        md5 = self.get_md5(message)
-        url = "http://qqmc.huitui.pro/tasks/complete"
-        data = {
-            "sign": md5,
-            "id": self.task_list[k],
-            "nonce": self.nonce,
-            "timestamp": t
-        }
-        response = requests.post(url, headers=self.headers_p, json=data)
-        # print(response.json())
-        if response.json().get('code') == 200001:
-            print(f"[{k}]任务成功，获得金币：{response.json().get('data').get('reward')}")
-            time.sleep(random.randint(30,40))
-            self.daily(k)
-        else:
-            print(f"[{k}]任务失败：{response.json().get('message')}")
-            if "验签异常" in response.json().get('message'):
-                time.sleep(random.randint(30,40))
-                self.daily(k)
-    
-    def collect(self):
-        t = str(int(time.time()*1000-1))
-        self.get_nonce()
-        message = f"1&{t}&{self.nonce}&{self.device}&T50uedlIX0fsgr5i0cGQdriBjmSAiLqC&com.yourong.app.qqmc"
-        md5 = self.get_md5(message)
-        url = "http://qqmc.huitui.pro/lucky_cats/fast_collect"
-        data = {
-            "sign": md5,
-            "mode": 1,
-            "nonce": self.nonce,
-            "timestamp": t
-        }
-        response = requests.post(url, headers=self.headers_p, json=data)
-        if response.json().get('code') == 200001:
-            print("一键收取元宝成功")
-        else:
-            print(f"一键收取元宝失败：{response.json().get('message')}")
-            if "验签异常" in response.json().get('message'):
-                time.sleep(5)
-                self.collect()
-    
-    def bay_cat(self):
+    def listen_complete(self):
+        t = int(time.time()*1000)
+        nonce = self.generate_random_string()
+        message = f"{t}{nonce}bd10b31d-9877-43ae-8f12-de08926987aa"
+        sha1 = self.hash(message)
         headers = {
-            "Authorization": self.token,
-            "X-Version-Code": "105",
-            "X-Platform": "android",
-            "X-System": "11",
-            "X-Brand": "Redmi",
-            "X-Device-ID": self.device,
-            "X-Client-Id": "com.yourong.app.qqmc",
-            "distributor-key": "qqmc",
-            "Content-Length": "0",
-            "Host": "qqmc.huitui.pro",
+            "sign": sha1,
+            "source": "APP_QZ_MUSIC",
+            "nonce": nonce,
+            "userCode": self.code,
+            "token": self.token,
+            "timestamp": str(t),
+            "user-agent": "Mozilla/5.0 (Linux; Android 11; Redmi K30i 5G Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/92.0.4515.131 Mobile Safari/537.36 uni-app Html5Plus/1.0 (Immersed/34.545456)",
+            "Content-Type": "application/json",
+            "Host": "gateway.rehuocm.com",
             "Connection": "Keep-Alive",
-            "Accept-Encoding": "gzip",
-            "User-Agent": "okhttp/4.9.3"
+            "Accept-Encoding": "gzip"
         }
-        url = "http://qqmc.huitui.pro/lucky_cats/purchase"
-        response = requests.post(url, headers=headers)
-        if response.json().get('code') == 200001:
-            print("购买喵喵成功")
+        url = "https://gateway.rehuocm.com/integral-service/user/account/xjt/v1.0/report"
+        data = {
+            "userCode": self.code,
+            "end": t
+        }
+        response = requests.post(url, headers=headers, json=data)
+        if response.json().get('code') == 200:
+            print(f"听歌成功，余额：{response.json().get('data').get('accountBalance')}")
         else:
-            print(f"购买喵喵失败：{response.json().get('message')}")
-
+            print(f"听歌失败：{response.json().get('msg')}")
+        
     
-    def cat_info(self):
-        url = "http://qqmc.huitui.pro/lucky_cats/info"
-        response = requests.get(url, headers=self.headers_g)
-        if response.json().get('code') == 200001:
-            self.jinbi = float(response.json().get('data').get('walletGold').get('balance'))
-            self.yuanbao = response.json().get('data').get('walletIngot').get('balance')
+    def signin(self):
+        t = int(time.time()*1000)
+        nonce = self.generate_random_string()
+        message = f"{t}{nonce}bd10b31d-9877-43ae-8f12-de08926987aa"
+        sha1 = self.hash(message)
+        headers = {
+            "sign": sha1,
+            "source": "APP_QZ_MUSIC",
+            "nonce": nonce,
+            "userCode": self.code,
+            "token": self.token,
+            "timestamp": str(t),
+            "user-agent": "Mozilla/5.0 (Linux; Android 11; Redmi K30i 5G Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/92.0.4515.131 Mobile Safari/537.36 uni-app Html5Plus/1.0 (Immersed/34.545456)",
+            "Content-Type": "application/json",
+            "Host": "gateway.rehuocm.com",
+            "Connection": "Keep-Alive",
+            "Accept-Encoding": "gzip"
+        }
+        url = "https://gateway.rehuocm.com/market-service/app/market/xjt/v1.0/sign"
+        params = {
+            "userCode": self.code
+        }
+        response = requests.get(url, headers=headers, params=params)
+        if response.json().get('code') == 200:
+            print('签到成功')
         else:
-            print(f"获取信息失败：{response.json().get('message')}")
-            
+            print(f"签到失败：{response.json().get('msg')}")
+    
+    def money_info(self):
+        t = int(time.time()*1000)
+        nonce = self.generate_random_string()
+        message = f"{t}{nonce}bd10b31d-9877-43ae-8f12-de08926987aa"
+        sha1 = self.hash(message)
+        headers = {
+            "sign": sha1,
+            "source": "APP_QZ_MUSIC",
+            "nonce": nonce,
+            "userCode": self.code,
+            "token": self.token,
+            "timestamp": str(t),
+            "user-agent": "Mozilla/5.0 (Linux; Android 11; Redmi K30i 5G Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/92.0.4515.131 Mobile Safari/537.36 uni-app Html5Plus/1.0 (Immersed/34.545456)",
+            "Content-Type": "application/json",
+            "Host": "gateway.rehuocm.com",
+            "Connection": "Keep-Alive",
+            "Accept-Encoding": "gzip"
+        }
+        url = "https://gateway.rehuocm.com/integral-service/user/account/xjt/v1.0/get"
+        params = {
+            "userCode": self.code
+        }
+        response = requests.get(url, headers=headers, params=params)
+        if response.json().get('code') == 200:
+            print(f"现金余额：{response.json().get('data').get('accountBalance')}")
+            print(f"可提现：{response.json().get('data').get('transferLimit')}")
+        else:
+            print(f"查询失败：{response.json().get('msg')}")
+
     def main(self):
-        self.tasks()
-        if self.task_list != {}:
-            print('==============开始任务：日常任务==============')
-            for k in self.task_list:
-                self.daily(k)
-        print('==============开始任务：收取元宝==============')
-        self.collect()
-        self.cat_info()
-        if self.jinbi > 3000:
-            print('==============开始任务：购买喵喵==============')
-            for i in range(int(self.jinbi/3000)):
-                self.bay_cat()
-                time.sleep(2)
+        self.signin()
+        self.listen_complete()
+        self.money_info()
+    
 
-
-if __name__ in "__main__":
-    token = os.getenv('token_qqmc')
-    if not token:
-        print('请检查环境变量token_qqmc')
+if __name__ == "__main__":
+    userid = os.getenv('qzyy_userid')
+    if not userid:
+        print('请检查环境变量qzyy_userid')
         exit()
-    tokens = token.split('@')
-    print(f'共有{len(tokens)}个账号')
+    userids = userid.split('@')
+    print(f'共有{len(userids)}个账号')
     if thread_TF:
         print('多线程已开启')
         threads = []
-        for i,token in enumerate(tokens):
+        for i,userid in enumerate(userids):
             print(f'----------开始第{i+1}个账号----------')
-            main = qqmc(token)
+            main = yunji(userid)
             thread = threading.Thread(target=main.main)
             threads.append(thread)
             thread.start()
         for thread in threads:
             thread.join()
     else:
-        for i,token in enumerate(tokens):
-            print('多线程已关闭')
+        for i,userid in enumerate(userids):
             print(f'----------开始第{i+1}个账号----------')
-            try:
-                main = qqmc(token)
-                main.main()
-            except:
-                pass
+            main = yunji(userid)
+            main.main()
             print(f'----------结束第{i+1}个账号----------')
-            time.sleep(random.randint(10,20))
-
+            time.sleep(random.randint(10,15))
