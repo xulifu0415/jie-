@@ -1,4 +1,4 @@
-//Wed Sep 18 2024 14:21:39 GMT+0000 (Coordinated Universal Time)
+//Sun Sep 22 2024 07:13:14 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 NAME = "星芽免费短剧";
