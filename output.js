@@ -1,4 +1,4 @@
-//Tue Sep 24 2024 06:20:05 GMT+0000 (Coordinated Universal Time)
+//Tue Sep 24 2024 06:59:12 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const W = aa("七猫免费小说 阅读+听书"),
