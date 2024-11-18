@@ -1,44 +1,22 @@
-#   --------------------------------注释区--------------------------------
-#   入口:http://www.xishidaxue.com/h5/reg.html?invite_code=VN1L92 走个头谢谢
-#   变量:yuanshen_xishi
-#   多号分割方式 [ @ 或 换行 或 新建同名变量 ]
-#   抓取Authorization的值填入
-#   corn: 一天一次即可
-#   注意先在主页实名领取学籍卡
-#   养老城模式一个夕拾币0.1元上涨，可转赠与提现
-#   --------------------------------一般不动区--------------------------------
-#                     _ooOoo_
-#                    o8888888o
-#                    88" . "88
-#                    (| -_- |)
-#                     O\ = /O
-#                 ____/`---'\____
-#               .   ' \\| |// `.
-#                / \\||| : |||// \
-#              / _||||| -:- |||||- \
-#                | | \\\ - /// | |
-#              | \_| ''\---/'' | |
-#               \ .-\__ `-` ___/-. /
-#            ___`. .' /--.--\ `. . __
-#         ."" '< `.___\_<|>_/___.' >'"".
-#        | | : `- \`.;`\ _ /`;.`/ - ` : | |
-#          \ \ `-. \_ __\ /__ _/ .-` / /
-#  ======`-.____`-.___\_____/___.-`____.-'======
-#                     `=---='
-# 
-#  .............................................
-#           佛祖保佑             永无BUG
-#           佛祖镇楼             BUG辟邪
-#佛曰:  
-#        写字楼里写字间，写字间里程序员；  
-#        程序人员写程序，又拿程序换酒钱。  
-#        酒醒只在网上坐，酒醉还来网下眠；  
-#        酒醉酒醒日复日，网上网下年复年。  
-#        但愿老死电脑间，不愿鞠躬老板前；  
-#        奔驰宝马贵者趣，公交自行程序员。  
-#        别人笑我忒疯癫，我笑自己命太贱；  
-#        不见满街漂亮妹，哪个归得程序员？
-#
-#   --------------------------------代码区--------------------------------
-import bz2, base64
-exec(bz2.decompress(base64.b64decode('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')))
+"""
+name : 小米商城签到做任务
+cron : 1 9 * * *
+脚本兼容 : 青龙
+更新时间 : 20241117
+环境变量名：mi
+环境变量值：cookie
+备注：抓小米商城app的包。有黑号风险。若提示更新，请将任务列表响应发到https://github.com/imoki/mi/仓库的issues中。
+    提交到imoki/mi仓库issues的抓包内容为：抓取小米商城app的https://shop-api.retail.mi.com/mtop/navi/venue/batch包的响应体，将响应全部发送到issues中，请务必参考issues模板发送。
+    如何判断提交的响应体格式是否正确：响应中含有result_list。
+
+在github中发送issues:
+1. 提交的标题格式如下：（标题格式：抓包时间+任务列表响应）
+20241117任务列表响应
+2. 提交的内容格式如下：（响应中含有result_list）
+{"traceId":"","code":0,"attachments":{"timestamp":""},"data":{"result_list":[{"amountTotal":760,"jumpUrl":"","tipList":["完成每日签到赚米金","积攒米金兑超级好物"],"waitArrival":0,"waitReceiveList":[],"waitReceiveTotal":0},{"components":[{"actId":"6706c0695404a23dfb5b2cab","taskId":"6706c0695243011f230d465d","taskName":"米金签到","taskDesc":"","taskType":200,"finishedNumber":0},{"actId":"6706c0695404a23dfb5b2cab","taskId":"6706edf30344c966c5b46681","taskName":"来会员中心 领专属好券","taskDesc":"浏览10秒+10米金","taskType":200,"finishedNumber":0},{"actId":"6706c0695404a23dfb5b2cab","taskId":"670f6baf1d65ee598c4fc39d","taskName":"新客专享福利","taskDesc":"浏览10秒+10米金","taskType":200,"finishedNumber":0},{"actId":"6706c0695404a23dfb5b2cab","taskId":"670fa2ba57e9a97a89265b63","taskName":"逛手机频道 选心动手机","taskDesc":"浏览10秒+10米金","taskType":200,"finishedNumber":0},{"actId":"6706c0695404a23dfb5b2cab","taskId":"6720abdc4015d32aaaa400bc","taskName":"Xiaomi 15系列 新品手机","taskDesc":"浏览10秒+10米金","taskType":200,"finishedNumber":0}]},{"components":[{"actId":"","taskId":"","taskName":"米金抽奖","taskDesc":"","taskType":128,"finishedNumber":0,"totalNumber":20,"startTime":1720000000000,"endTime":1730000000000,"status":2,"scores":0,"singleCostScores":30,"costType":2,"cycleTime":0,"taskRefreshWay":0,"upperLimit":20,"canDo":true}]}]},"message":"ok"}
+
+"""
+
+#!/usr/bin/python3
+import lzma, base64
+exec(lzma.decompress(base64.b64decode('/Td6WFoAAATm1rRGAgAhARYAAAB0L+Wj4C5PDnxdABGIQkeKIzPDdw8z/VhnH14++zf0c4wFR+LtkdbWkKN+xBT8V6UV1gapg/gb73syFX5g3xyon8LAHaTjL/C/iJO2Rys9+RvHg8WCsITlzQYKlnv13cf8bXvInGSi05k+Jat8EWJZraoWPxNVwzMvQy8BLB1XQ+vv8I30s4Wrj7b8nndm8VCo5BNdGscajv+CrENeIiDDTggXW+OD6L/gL9fIT1CsigclTpq9742yBgbXv8KzVTX/Ts4+fyr4clZonTFP3dUjg7kiqSok98H0cPGaHZhvF3s/5EqGbp4G3TWdek0T7sdO0uR0KMsTbRPPBo+3JjdsqfGJXC2I+bKV+SvHJB36rWhmmomm/zs60F7gGKzWwKfQrVSeMNDnSWBNpz+5oIOjdOFTQASioxpy8L+JtP97/YW4FlG/X59/VJaR8mA87MxiMUk4vONuWAQWPX5XCDdNhMS1/z2ixKfBQbwBXglxUV0Cg4JbbsGDt9pm8oY8X/p713mmq+XX2yDJWQWl6SWrNvjdq9drczKLITtDVa3LIuhTsu2NCwpduYm3GEQlBe2blolO81wVCHET5ptKoADuj7+KraiQe6s0kttw22RO4Kbovh0V3eABFutqq2OuqPg08edLsEsKLPnx0XSCPg81X+HHKfHMcXBNr6kgyGd46JATdDcIJwSymT3/CP3jJvU2DbPhmFVIxi+DW2XTOfHZ8aslQpJMF1Xc6KIRxP3eeAEJQIwR21GMQqBF5GpHaS/izhQqawoUtxcFOuJDnr4RYxMq9ZT1+tFfuSY4lTeNFBlvNWSOTV/Ud0zFYQzh7ct/EyhdW7JdclwObZt8Ttzr0Hr+ZEM2eCvlWNtsmKNOOhZUtJSAaHxWy0WVxBTFKHy88k1ApJDLzFlIvjAnzSZU4xmzegw4vEO1WBQwMOyxPAJL5hDrX8+xoylK/FGbVelVSM4tTHe19kGnEkZ9SYMSfol/vXWfzMWJ5NVRdKdvJ7bIdrLPDp4uvIRRKq7R+DYri7R+rYtYQ1kGiSEmnkLRzR4hSCZ3lDzlFCQnlvFLhi1FPyaBgqcK76YVR3JOQT4bBMwlHJixqdbDbhHDCEvEXZxSRXl8SyjjbZcc/1KzqXRkY/TOUoZ5UmGqB2WTecH3jPCmPIzpIODkHUpjKnUZIqJfzblB2bmEc2VDRSH/cyVgRQqNoArdOqLPU4wVbzQzNT2D0UafovzxSnNPjhwa7q89FJl/n4JcSs7clrXi9KIGll6vggXza1b9gn9b7zuQ0bEPNXwKMlczvWvBWOavmGPCJjwefRtzKC08SdzYcFlQJzIfW4exCPN5kDR9WXEzDX+BOrjucdsT7z4cLOgrClfPqkigo3ZzFxpabR2veO5lMRrzTWlzF7Ap6WimyvACADmyA2LJVG6pTvymx434qvEDlXI0Aoh0oQVWKoystieHJFiRppwuCGs7Zk+CIip2GMCUpqmMOs4NAiJGbx20fFFLSQoj7uiKxoWIgBAXWgnRGwHteHPkaCScGzhj7omNv4y6KAKkFTHAb3ehoJO7oimTZ30NyTNYUdFQvTMagRwiHgxHwMUsmhVwZ1Ht2epLzZIJaW9XTMcNQpd08+k4WqOrqAWGrycHnD4W3nF/7uoJVcTJYMtmMMWx4xqIPf2fJzZgawYYeiJqVmmxvP4ZtanFyTHbfpnEdD/hkA3Tz5suQiqfi1piUO1F9i5M8mYqHp4F85ueHUKo8hpO43np9hvKEvcOxnaxZf4GWCt/S710QqYe2kxnRxSYD/j3pdJFdYSSHp8NbsjnnJdpFammRvSDs6MUsW4xw37cGO7TNgy769/3zd375VQmyEA9ernFCNCvfG24XL1ju5/b+PtLXfjl8tmrKA58aivcvZXijT9T+RaZjoMwiLyckHQqJoeUf7vBO69KdqzZtqIAQQia1nrNt3yD98Zi01vH5XchRI1SVZudFAqBgmmUHDsolhqxcGAORzvTT1i3CrvFbF1XVqII/TyiMJPgvihVft6BsmAImudCOvQ3fVv3d2uiZQdangSVJlMeYiFSkOh/0JL36ZtxtkzI065gO9xjC270NEK2jlRnbQk7os46HJHe+XFTLYnLoXJpWSe9te7/r9m6n8rwivJCuyRZF+WSFWPRFwXqAlHpOsdIOBGtoTGK5Nx8NkpC8uqPVKIQLOrPhNn9K81H6BJHA4JFRGl5AFO4nL2jSlaEKaeVojde5BJNRzOZ8bucU/bi35vXBZGXrmkQfyEyqaIQoZryh/Td2LwWgNsHZGHPudLfhQICX4yAhGSA3S/PjoBMV+093eOqSO/dVSVshWdWF4xaSWuuCrMYeuzzC3WybJJDVhrbQXOviAIqP/GtYDxOrSkvryZTRE1Dg4MUpaNbJ3vSr4Gqcp7IYHioLjyOAaUbUs6H2Bt9t5pE8jdQw4ZegjDp/E+gIxOxEBsYEucK5Q/TzQXk0rlw0cRzRaEgOiicRhssy0vShTvbY0KI86qaRTewI8gD4OIJ649yq4lJUXatjrnB8/S+YMtO8j2RrvAgoKDVuTqKKhr74S0sdkEO4vxoipZOM4alEx57F/LL6Lk2WVTpvoZNmwRWo7SD+mzVEFpHw+4JGUc7WB1ESZw5kwzjpG9rMX60G1M48PX1rc8JhzooeUzqlkOiRouks/sTpFoxv+D5gDBir9Tb1iGm2w7+bKu/2jLNsoCFoIbgO1NS0JqD+KFF4rd7mgkUjzfnFs4+NN/eEm9q/ywEfWAoykHJ1VqRFRqTFTEg7IfUpmsUhiHibjzdJKEvcO7M+KEodhtJ75xHe+zDPNGrPHomJDlH1CQpqE66ttlsDrb42kAo0APZPp7Zkxlt+jynYawTeYAqqIQQJr6Eyw1rCZlbFNWFz1HbYdwALA8gGYbS2quxpj146PnwAqTH++5hwg2qZ20YcExda80bxlEcaDjE0FOQ5pylsScLZpOlzV8GFtNr4N1JJtBg1rmGgfLUbmX2L0i55eV9hCUstVwFEjhfKYVcUoWH+iqsmX5FHqRISpPtTZE4BhWQNWg2lSRxss639DpJwQsigOfWvE+rgOTj7UDq4ZG9QzpvN/X5Dk0j6YA2nbjd2ze+RQaU+kyjY0GZSljlJk3YyWyv3TAdrctMIsIoWbka/OUb95gus/KCigX2hfwzpB21adtlADWZ3pFc+WYChbKj7DcltCzM5X1T6sODtruA0ld2t5aNyeCuwe+NIkd84uPzbt3dc0BRl+8Tc4URcpZ6qX8du79oPCuM16dsTahQsSJ0YUP9WxArTXMQRljFhZHnGK9x5F+UPAcHLjXoMKTKQ/aaign9ocChexQQTUdZO3CWrinFghesA5dhzd8tFqvWfHjrVtt8lCWDzX8wj5jnqybbRLJIlUUVaSsfWZBF+1AJjRvd0p24iF7/b9mBNS5kXMDlzRiPtho4J4AbZE6Ome/mXJZ5u2A0kkVptD+bD57wzjf192SQyo0apHha+A9e40k37RbH71BLnvCjwpUec3gp0k4S2QjMiw+vSQTyKyCz5OPeWrzUoanBsiUkWcN3qGFAI52mZ454my+vy4BnaoHRBjWp2xYl3IXciUR9z5Ao+Dsav1IISDkqNFGXsnAdZZWuG64s0JtMKLZ2ABHPg390Ju6LLElzugRjYMB+z2R29jkSijS7WLSEZ3OFND7YwIBCi48TIt403kd7QOFFVz996kclz1DxNbWrjVCGSnXoNKhC3xetJ7y4P3Q8ChgF8QlabIT4nMxQlZUUMHHkebyOP46MtuKD9gBMCoUi9vnn6nNgL6jf8LwCARJ6oboLE0uhrPqzN4mFdUocNCu1s/ZuzL1rzG8h851YOLVIblPwIM1QQLpRIu41mvcixqU/10T4b9V8Np4db7xS4j9Bw+qx2IIaXQaF/dok99vkdT1jBtj9aDPAif5Xc1Q+yRvMG5Gr46NDU0/inRx7/tF6astAcAT+Wx7B7Z9xUz+APyNYK55VITi8QTsaNQ8z7iRq+Lkr+sy1QeKYu8ZhGioNJ+L/BSP33XQ6cRvMkngpUPwpX0B2qbVPhcw5qWSlr8RgZzQ3pufE7OrEau5QzryhiLDGp1BwHd/oOE9bZXVOLmxd4O66MhaKeGX+1QjYABVz5jobTN5NWJdYtjLEFTwFC+QAol0df0yyX7CjqqnTilp2P5KlmVt1VR+cTKyzqfFUFf1Z8ft2Wl8UOaHx/TAvQMtaZ4auUaR+MN2dYt7iuQ0zjWULaVXv1jeqH3LvMOmbVgBWyeacpWCt1exd9P8eYdE9Lm+B1ePeEqirFytENaXsU26bvrPgahH6xdd8+/hmsSny+DR79gWUizZtrlXqmXGc5545LqVUP11qP7na4gsng3XovdMiPeQchyUN9ymAQm/0CSpVYi9QsTtyQlAf2cC66A5/zpAbRleUw2es+vkWJQoaj8L6jJFGm1lUfzbXHPJSvbX0a2BtNyBut3pMOWTY5wG4eDGhBYQMn09P+/vaeQ9hOaE3AplmLvuRj34WRZSSmndyzWz8hiJWSI7Uja4A+NxqZRH5948T7gOAjk9Mqqrrs2eJL64bVuxKUWJY/le0+0XabvrtSIIgWTF+a8IwrkIitsBjC8aSaURnEZdUvfvUCNsq/YhfMTROzajRLVcr5UOIGkLHhXdyBqXzXTm5JCE6sbCy+D7ddX3gja3pkY7mSPldamTB47nRr5sexP5UgPQILhJHPR1PQdA+QxN0S2126dxpTXEtyE2Psg7BAFvJTj3p1H5LOJVIZgmoaEsgb2g6kNyK/OB+cDiG0rq5cjzPyPXfSXRJ5ILOf5xVyZ3McR9fjxWhE34Wknt1DpghNg0ApDF9SQi2UTcujiagr+s/BJIBQLwIINd0FWtXhTwdyoXZW/z4E31BSye14IeZCSG6fhy5ml6+6+mAOMDHEXhQqsYTh6Dz5COZup9TM4FSx6U10ADZZQ7Te7lO6gABmB3QXAAAjX3i6bHEZ/sCAAAAAARZWg==')))
